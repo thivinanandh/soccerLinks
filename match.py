@@ -39,4 +39,4 @@ with open(filename, 'w') as fh:
         names = dataFrame['Match'].to_list(),
         zip=zip
     ))
-
+print("Match link generation completed")
