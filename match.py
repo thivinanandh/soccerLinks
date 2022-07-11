@@ -11,8 +11,8 @@ Matches = []
 Links = []
 for link in soup.find_all('td',class_="et3"):
     htmlval = link.find_next_siblings('td')
-    soupMatch = BeautifulSoup(str(htmlval[0]))
-    soupLink = BeautifulSoup(str(htmlval[1]))
+    soupMatch = BeautifulSoup(str(htmlval[0]),features="html.parser")
+    soupLink = BeautifulSoup(str(htmlval[1]),features="html.parser")
     if(soup.get_text() and len(soupLink.find_all('a', href=True))):
         Matches.append(soupMatch.get_text().lower())
         UrlValue = soupLink.find_all('a', href=True)[0]['href']
