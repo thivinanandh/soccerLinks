@@ -30,6 +30,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Generate Match.html
       run: |
+        rm match.py
         python match.py
         git config --global user.name thivinanandh
         git config --global user.email thivinanandh@gmail.com
