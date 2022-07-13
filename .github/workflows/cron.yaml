@@ -1,0 +1,42 @@
+
+name: Python application
+
+on:
+  schedule:
+    # Runs Every 12 hours 
+    - cron: '0 0 0/6 1/1 * ? *'
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 pytest
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Generate Match.html
+     
+      run: |
+        git rm --cached match.html
+        rm match.html
+        python match.py
+        git config --local user.name thivinanandh
+        git config --local user.email thivinanandh@gmail.com
+        git status
+        git remote -v
+        git status
+        git add match.html
+        git commit -m "Automatic Update-1"
+        git push 
