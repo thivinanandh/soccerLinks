@@ -4,7 +4,7 @@ name: Python application
 on:
   schedule:
     # Runs Every 12 hours 
-    - cron: '0 0 0/6 1/1 * ? *'
+    - cron: '0 */6 * * *'
 
 permissions:
   contents: write
