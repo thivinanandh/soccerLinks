@@ -41,6 +41,7 @@ jobs:
         git remote -v
         git status
         git add match.html
+        cat match.html
         git commit -m "Automatic Update-1"
         git push -f
         
