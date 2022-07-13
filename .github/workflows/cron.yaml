@@ -1,5 +1,5 @@
 
-name: Python application
+name: Cron-Job Python application
 
 on:
   schedule:
